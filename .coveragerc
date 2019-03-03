@@ -1,0 +1,5 @@
+[run]
+include = rabbfinance/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
