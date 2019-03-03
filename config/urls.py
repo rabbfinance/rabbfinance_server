@@ -1,9 +1,13 @@
 from django.conf import settings
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/images/favicons/favicon.ico', permanent=True)
+
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -20,7 +24,9 @@ urlpatterns = [
         include("rabbfinance.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
+    # favicon
+    re_path(r'^favicon\.ico$', favicon_view),
+
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
