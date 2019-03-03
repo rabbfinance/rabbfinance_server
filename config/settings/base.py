@@ -70,7 +70,8 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'rabbfinance.users.apps.UsersAppConfig',
-    # Your stuff: custom apps go here
+    'rabbfinance.category',
+    'rabbfinance.money',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
