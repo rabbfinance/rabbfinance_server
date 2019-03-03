@@ -10,7 +10,7 @@ favicon_view = RedirectView.as_view(url='/static/images/favicons/favicon.ico', p
 
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("/", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),
