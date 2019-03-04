@@ -32,3 +32,25 @@ class Category(BaseAppModel):
 
     def get_absolute_url(self):
         return reverse("category_detail", kwargs={"pk": self.pk})
+
+
+class Origin(BaseAppModel):
+    name = CharField(max_length=255)
+    slug = SlugField(unique=True)
+    owner = ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=CASCADE)
+
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Origin, self).save(*args, **kwargs)
+
+
+    class Meta:
+        verbose_name = ("Origin")
+        verbose_name_plural = ("Origins")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Origin_detail", kwargs={"pk": self.pk})

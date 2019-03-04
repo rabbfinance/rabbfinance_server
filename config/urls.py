@@ -5,12 +5,14 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.views.generic.base import RedirectView
+from rabbfinance.money.views import HomeView
+
 
 favicon_view = RedirectView.as_view(url='/static/images/favicons/favicon.ico', permanent=True)
 
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("", HomeView.as_view(), name="home"),
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),

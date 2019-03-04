@@ -1,1 +1,9 @@
 {% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+
+<h5>Ingresos  : $ {{ ingresos|intcomma  }} </h5>
+<h5>Gasto  : $ {{ gasto|intcomma  }} </h5>
+__________________
+<h5>Pocket  : $ {{ total|intcomma  }} </h5>
+{% endblock content %}
