@@ -8,7 +8,7 @@ app finance
      :alt: Built with Cookiecutter Django
 
 
-:License: MIT
+:License: APACHE
 
 
 Settings
